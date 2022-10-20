@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="PT-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PF - Inteligência</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+    <link href="css/style.css" rel="stylesheet">
+    <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
+</head>
+
+<body>
+
+    <!-- Just an image -->
+    <nav id="header" role="header" class="navbar navbar-dark bg-dark">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <div id="logo"></div>
+                    <div class="d-flex align-items-center">
+                        <img src="img/pf_logo.png" alt="Polícia Federal" style="float: left; width: 100px; height: 100px; padding-right: 0.8em;" class="d-flex align-top">
+                        <h2 id="title" class="ms-3">Polícia Federal</h2>
+                    </div>
+                </div>
+            </a>
+
+        </div>
+    </nav>
+    <div class="container" id="container">
+        <!-- Modal -->
+        <div class="modal fade" id="modalFoto" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="staticBackdropLabel">Foto do Auto</h5>
+                        <button type="button" id="fecharModal" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <p>Clique com o botão direito e copie a imagem.</p>
+                        <div id="fotoPrisao"></div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" id="fecharModal1">Fechar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <section id="showOnPrint">
+            <div class="row mt-3 justify-content-center">
+                <div class="col-2">
+                    <img class="text-start" src="img/pf_brasao.png" alt="Brasão da Polícia Federal" width="100%">
+                </div>
+                <div class="col-8 align-self-center ">
+                    <h5 class="fw-bold text-center">MINISTÉRIO DA JUSTIÇA E SEGURANÇA PÚBLICA</h5>
+                    <h5 class="fw-bold text-center">DEPARTAMENTO DE POLÍCIA FEDERAL</h5>
+                    <h5 class="fw-bold text-center">SUPERITENDÊNCIA REGIONAL DE SAN FIERRO</h5>
+                </div>
+                <div class="col-2">
+                    <img class="text-start" src="img/rf_brasao.png" alt="Brasão da República Federal do Brasil" width="100%">
+                </div>
+            </div>
+            <div id="dadosPessoais" class="mt-5">
+                <div class="col-12">
+                    <h5 id="titulo-doc" class="fw-bold text-center my-3">TERMO CIRCUNSTANCIADO DE OCORRÊNCIA</h5>
+                </div>
+                <table class="table table-bordered border-dark">
+                    <thead>
+                        <tr id="tabela-dados">
+                            <th style="width: 15%" scope="col">Vítima:</th>
+                            <th style="width: 15%" scope="col">RG:</th>
+                            <th style="width: 15%" scope="col">Profissão:</th>
+                            <th style="width: 15%" scope="col">Telefone:</th>
+                            <th style="width: 15%" scope="col">Nome do Autor:</th>
+                            <th style="width: 15%" scope="col">RG do Autor:</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td style="width: 15%" id="ddsNomeV"></td>
+                            <td style="width: 15%" id="ddsRGV"></td>
+                            <td style="width: 15%" id="ddsTrabV"></td>
+                            <td style="width: 15%" id="ddsTelV"></td>
+                            <td style="width: 15%" id="ddsNomeA"></td>
+                            <td style="width: 15%" id="ddsRGa"></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div id="infoPrisao" class="mt-5">
+                <div class="row mt-4">
+                    <div class="col-md-12">
+                        <h6 class="fw-bold">Relato Da Vítima:</h6>
+                        <p id="relatoV"></p>
+                    </div>
+                </div>                      
+            </div>
+            <div class="row d-flex justify-content-center mt-3">
+                <div class="col-4 ms-3 assinaturas">
+                    <p class="assinaturaResp" id="assinaturaResp"></p>
+                    <hr>
+                    <p class="fw-bold">Assinatura do responsável pelo TCO</p>
+                </div>
+            </div>
+        </section>
+        <section id="hideOnPrint">
+            <div class="row mt-3">
+                <div class="col-12">
+                    <h3 class="text-center">Formulário de TCO</h3>
+                </div>
+            </div>
+
+
+            <div class="row">
+                <div class="col-12">
+                    <p class="text-center">Preencha abaixo para a elaboração do TCO.</p>
+                </div>
+            </div>
+            <div class="row mt-3">
+                <div class="col-md-2 col-sm-12">
+                    <div>
+                        <label for="exampleFormControlInput1" class="form-label">RG:</label>
+                        <input type="email" class="form-control" id="rgVitima" placeholder="R.G da vítima.">
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div>
+                        <label for="exampleFormControlInput1" class="form-label">Nome:</label>
+                        <input type="email" class="form-control" id="nomeVitima" placeholder="Insira o nome da vítima.">
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div>
+                        <label for="exampleFormControlInput1" class="form-label">Telefone:</label>
+                        <input type="email" class="form-control" id="telefoneVitima" placeholder="Insira o telefone da vítima.">
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div>
+                        <label for="exampleFormControlInput1" class="form-label">Trabalho:</label>
+                        <input type="email" class="form-control" id="trabalhoVitima" placeholder="Insira o trabalho da vítima.">
+                    </div>
+                </div>
+
+            </div>
+            <div class="row my-3">
+                <div class="col-md-4">
+                    <label for="localFato" class="form-label">Nome do Autor:</label>
+                    <input type="email" class="form-control" id="nomeAutor" placeholder="Insira o nome do autor."></input>
+                </div>
+                <div class="col-md-4">
+                    <label for="localFato" class="form-label">RG do Autor:</label>
+                    <input type="email" class="form-control" id="rgAutor" placeholder="Insira o RG do autor."></input>
+                </div>
+                <div class="col-md-4">
+                    <label for="respPrisao" class="form-label">Responsável pelo TCO:</label>
+                    <select class="form-select form-select mb-3" name="respPrisao" id="respPrisao">
+                        <option value="">Selecione um responsável</option>
+                        <option value='Alfa Zeus'>Alfa Zeus</option>
+                    </select>
+                </div>
+                
+            </div>
+            <div class="row my-3">
+                <div class="col-md-12">
+                    <label for="relatoPrisao" class="form-label">Relato do Fato:</label>
+                    <textarea class="form-control" id="relatoFatoV" rows="5" cols="33"></textarea>
+                </div>
+            </div>
+        </section>
+        <div class="row my-5 justify-content-center">
+            <div class="col-4 d-grid">
+                <button type="button" id="btnGerar" class="btn btn-dark" onclick="elaborarTco()">Gerar documento.</button>
+            </div>
+        </div>
+
+    </div>
+
+    <script src="https://html2canvas.hertzen.com/dist/html2canvas.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js" integrity="sha384-q2kxQ16AaE6UbzuKqyBE9/u/KzioAlnx2maXQHiDX9d4/zp8Ok3f+M7DPm+Ib6IU" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.min.js" integrity="sha384-pQQkAEnwaBkjpqZ8RU1fF1AKtTcHJwFl3pblpTlHXybJjHpMYo79HY3hIi4NKxyj" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.1.1.js" integrity="sha256-16cdPddA6VdVInumRGo6IbivbERE8p7CQR3HzTBuELA=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+    <script src="./js/index.js"></script>
+</body>
+
+</html>
